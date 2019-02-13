@@ -25,7 +25,9 @@ public class UserMeal {
         return dateTime.toLocalDate();
     }
 
-    public LocalTime getTime() { return dateTime.toLocalTime(); }
+    public LocalTime getTime() {
+        return dateTime.toLocalTime();
+    }
 
     public String getDescription() {
         return description;
@@ -34,4 +36,5 @@ public class UserMeal {
     public int getCalories() {
         return calories;
     }
+
 }
