@@ -17,22 +17,28 @@
 <h3><a href="index.html">Home</a></h3>
 <h2>Meals</h2>
 
+<p><a href="meals?action=create">Add Meal</a></p>
 
 <table border="1" cellpadding="8" cellspacing="0">
     <thead>
     <tr>
-        <th>Дата</th>
-        <th>Назва</th>
-        <th>Калорії</th>
+        <th>Data</th>
+        <th>Description</th>
+        <th>Calories</th>
+        <th>Update</th>
+        <th>Delete</th>
     </tr>
     </thead>
 
     <c:forEach items="${mealList}" var="meal">
         <jsp:useBean id="meal" scope="page" type="ru.javawebinar.topjava.model.MealTo"/>
         <tr style="color: ${meal.excess ?"red":"green"}">
-            <td><%= TimeUtil.toString(meal.getDateTime())%></td>
+            <td><%= TimeUtil.toString(meal.getDateTime())%>
+            </td>
             <td>${meal.description}</td>
             <td>${meal.calories}</td>
+            <td><a href="meals?action=update&id=${meal.id}">Edit</a></td>
+            <td><a href="meals?action=delete&id=${meal.id}">Delete</a></td>
         </tr>
     </c:forEach>
 </table>
